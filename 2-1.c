@@ -7,49 +7,49 @@
 using namespace std;
 
 /**
-* \brief перечислимый тип: выбор расчёта площади круга или трапеции .
+* \brief РїРµСЂРµС‡РёСЃР»РёРјС‹Р№ С‚РёРї: РІС‹Р±РѕСЂ СЂР°СЃС‡С‘С‚Р° РїР»РѕС‰Р°РґРё РєСЂСѓРіР° РёР»Рё С‚СЂР°РїРµС†РёРё .
 */
 
 enum class Figure
 {
 /**
-* \brief пеправильно сформулирован выбор.
+* \brief РїРµРїСЂР°РІРёР»СЊРЅРѕ СЃС„РѕСЂРјСѓР»РёСЂРѕРІР°РЅ РІС‹Р±РѕСЂ.
 */
 none,
 
 /**
-* \brief выбран круг.
+* \brief РІС‹Р±СЂР°РЅ РєСЂСѓРі.
 */
 circle,
 
 /**
-* \brief Выбрана трапеция.
+* \brief Р’С‹Р±СЂР°РЅР° С‚СЂР°РїРµС†РёСЏ.
 */
 trapezoid
 };
 
 /**
-* \brief функция расчета площади трапеции.
-* \param a параметр основания a.
-* \param b параметр основания b.
-* \param h параметр высоты h.
-* \return площадь трапеции.
+* \brief С„СѓРЅРєС†РёСЏ СЂР°СЃС‡РµС‚Р° РїР»РѕС‰Р°РґРё С‚СЂР°РїРµС†РёРё.
+* \param a РїР°СЂР°РјРµС‚СЂ РѕСЃРЅРѕРІР°РЅРёСЏ a.
+* \param b РїР°СЂР°РјРµС‚СЂ РѕСЃРЅРѕРІР°РЅРёСЏ b.
+* \param h РїР°СЂР°РјРµС‚СЂ РІС‹СЃРѕС‚С‹ h.
+* \return РїР»РѕС‰Р°РґСЊ С‚СЂР°РїРµС†РёРё.
 */
 
-double GetTrapezoid(double a, double b, double h);
+const double GetTrapezoid(double a, double b, double h);
 
 /**
-* \brief функция расчета площади круга.
-* \param r параметр - радиус.
-* \return площадь круга.
+* \brief С„СѓРЅРєС†РёСЏ СЂР°СЃС‡РµС‚Р° РїР»РѕС‰Р°РґРё РєСЂСѓРіР°.
+* \param r РїР°СЂР°РјРµС‚СЂ - СЂР°РґРёСѓСЃ.
+* \return РїР»РѕС‰Р°РґСЊ РєСЂСѓРіР°.
 */
 
-double GetCircle(double r);
+const double GetCircle(double r);
 
 /**
-* \brief ввод параметров.
-* \param message разъясняющая надпись.
-* \return значение параметра.
+* \brief РІРІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ.
+* \param message СЂР°Р·СЉСЏСЃРЅСЏСЋС‰Р°СЏ РЅР°РґРїРёСЃСЊ.
+* \return Р·РЅР°С‡РµРЅРёРµ РїР°СЂР°РјРµС‚СЂР°.
 */
 
 double ReadSide(const string& message = "");
@@ -63,48 +63,42 @@ double ReadSide(const string& message = "");
 Figure ReadUserChoice(const string& message = "");
 
 /**
-* \brief вход в программу.
-* \return код ошибки, если 0 - успешно.
+* \brief РІС…РѕРґ РІ РїСЂРѕРіСЂР°РјРјСѓ.
+* \return РєРѕРґ РѕС€РёР±РєРё, РµСЃР»Рё 0 - СѓСЃРїРµС€РЅРѕ.
 */
 
 int main()
 {
 setlocale(LC_ALL, "Russian");
 
-const auto message = "выберите, что необходимо посчитать("
-+ to_string(static_cast<int>(Figure::circle)) + " - площадь круга, "
-+ to_string(static_cast<int>(Figure::trapezoid)) + " - площадь трапеции):";
+const auto message = "РІС‹Р±РµСЂРёС‚Рµ, С‡С‚Рѕ РЅРµРѕР±С…РѕРґРёРјРѕ РїРѕСЃС‡РёС‚Р°С‚СЊ("
++ to_string(static_cast<int>(Figure::circle)) + " - РїР»РѕС‰Р°РґСЊ РєСЂСѓРіР°, "
++ to_string(static_cast<int>(Figure::trapezoid)) + " - РїР»РѕС‰Р°РґСЊ С‚СЂР°РїРµС†РёРё):";
 
 const auto Figure = ReadUserChoice(message);
 
 switch (Figure)
 {
-
 case Figure::circle:
 {
-
-const auto r = ReadSide("введите радиус круга = ");
+const auto r = ReadSide("РІРІРµРґРёС‚Рµ СЂР°РґРёСѓСЃ РєСЂСѓРіР° = ");
 const auto Square_Circle = GetCircle(r);
-cout « "площадь круга = " « Square_Circle « endl;
-
+cout В« "РїР»РѕС‰Р°РґСЊ РєСЂСѓРіР° = " В« Square_Circle В« endl;
 break;
 }
-
 case Figure::trapezoid:
 {
 double z = 0, quantity = 0;
-
-const auto a = ReadSide("введите первое основание трапеции = ");
-const auto b = ReadSide("введите второе основание трапеции = ");
-const auto h = ReadSide("введите высоту трапеции = ");
+const auto a = ReadSide("РІРІРµРґРёС‚Рµ РїРµСЂРІРѕРµ РѕСЃРЅРѕРІР°РЅРёРµ С‚СЂР°РїРµС†РёРё = ");
+const auto b = ReadSide("РІРІРµРґРёС‚Рµ РІС‚РѕСЂРѕРµ РѕСЃРЅРѕРІР°РЅРёРµ С‚СЂР°РїРµС†РёРё = ");
+const auto h = ReadSide("РІРІРµРґРёС‚Рµ РІС‹СЃРѕС‚Сѓ С‚СЂР°РїРµС†РёРё = ");
 const auto Square_Trapezoid = GetTrapezoid(a, b, h);
-cout « "площадь трапеции = " « Square_Trapezoid « endl;
+cout В« "РїР»РѕС‰Р°РґСЊ С‚СЂР°РїРµС†РёРё = " В« Square_Trapezoid В« endl;
 break;
 }
 default:
-cout « "ошибка!";
+cout В« "РѕС€РёР±РєР°!";
 }
-
 return 0;
 }
 
@@ -120,15 +114,15 @@ return ((a + b) / 2)*h;
 
 double ReadSide(const string& message)
 {
-cout « message;
+cout В« message;
 double side;
-cin » side;
+cin В» side;
 return side;
 }
 
 Figure ReadUserChoice(const string& message)
 {
-cout « message ;
+cout В« message ;
 int userInput;
-cin » userInput;
+cin В» userInput;
 return static_cast<Figure>(userInput);
