@@ -8,41 +8,41 @@
 using namespace std;
 
 /**
-* \brief Заполнение массива случайными числами
-* \param array Массив
-* \param size Размер массива
-* \param min Минимально возможное число
-* \param max Максимально возможное число
+* \brief Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°СЃСЃРёРІР° СЃР»СѓС‡Р°Р№РЅС‹РјРё С‡РёСЃР»Р°РјРё
+* \param array РњР°СЃСЃРёРІ
+* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
+* \param min РњРёРЅРёРјР°Р»СЊРЅРѕ РІРѕР·РјРѕР¶РЅРѕРµ С‡РёСЃР»Рѕ
+* \param max РњР°РєСЃРёРјР°Р»СЊРЅРѕ РІРѕР·РјРѕР¶РЅРѕРµ С‡РёСЃР»Рѕ
 **/
 void RandomArray(int* array, const size_t size, const int min, const int max);
 
 /**
-* \brief Ввод массива с клавиатуры
-* \param array Массив
-* \param size Размер массива
+* \brief Р’РІРѕРґ РјР°СЃСЃРёРІР° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
+* \param array РњР°СЃСЃРёРІ
+* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
 **/
 void UserArray(int* array, const size_t size);
 
 /**
-* \brief Сумма элементов с нечетными индексами
-* \param array Массив
-* \param size Размер массива
+* \brief РЎСѓРјРјР° СЌР»РµРјРµРЅС‚РѕРІ СЃ РЅРµС‡РµС‚РЅС‹РјРё РёРЅРґРµРєСЃР°РјРё
+* \param array РњР°СЃСЃРёРІ
+* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
 **/
 int SumNumbers(int* array, const size_t size);
 
 /**
-* \brief Количество элементов(значения которых больше А, кратны 5)
-* \param array Массив
-* \param size Размер массива
-* \param A значение по условию
+* \brief РљРѕР»РёС‡РµСЃС‚РІРѕ СЌР»РµРјРµРЅС‚РѕРІ(Р·РЅР°С‡РµРЅРёСЏ РєРѕС‚РѕСЂС‹С… Р±РѕР»СЊС€Рµ Рђ, РєСЂР°С‚РЅС‹ 5)
+* \param array РњР°СЃСЃРёРІ
+* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
+* \param A Р·РЅР°С‡РµРЅРёРµ РїРѕ СѓСЃР»РѕРІРёСЋ
 **/
-int NumberElements(int* array, const size_t size, int A);
+int NumberElements(int* array, const size_t size, int a);
 
 /**
-* \brief Новый массив(все четные элементы делить на первый элемент)
-* \param array Массив
-* \param second_array Обработанный массив
-* \param size Размер массива
+* \brief РќРѕРІС‹Р№ РјР°СЃСЃРёРІ(РІСЃРµ С‡РµС‚РЅС‹Рµ СЌР»РµРјРµРЅС‚С‹ РґРµР»РёС‚СЊ РЅР° РїРµСЂРІС‹Р№ СЌР»РµРјРµРЅС‚)
+* \param array РњР°СЃСЃРёРІ
+* \param second_array РћР±СЂР°Р±РѕС‚Р°РЅРЅС‹Р№ РјР°СЃСЃРёРІ
+* \param size Р Р°Р·РјРµСЂ РјР°СЃСЃРёРІР°
 **/
 void SecondArray(int* array, double* second_array, const size_t size);
 
@@ -92,17 +92,17 @@ int main()
 		break;
 	}
 
-	cout << SumNumbers(array, size) << endl;
+	cout << SumNumbers(array, size) << \n;
 
-	cout << NumberElements(array, size, A) << endl;
+	cout << NumberElements(array, size, A) << \n;
 
-	SecondArray(array, second_array, size);
+	const int secondArray = SecondArray(array, second_array, size);
 
 	for (size_t i = 0; i < size; i++)
 	{
-		cout << "array[" << i << "] = " << second_array[i] << endl;
+		cout << "array[" << i << "] = " << second_array[i] << \n;
 	}
-	delete array;
+	delete[] array;
 	delete second_array;
 }
 
@@ -142,12 +142,12 @@ int SumNumbers(int* array, const size_t size)
 	return sum;
 }
 
-int NumberElements(int* array, const size_t size, int A)
+int NumberElements(int* array, const size_t size, int a)
 {
 	int num = 0;
 	for (size_t i = 0; i < size; ++i)
 	{
-		if (array[i] > A && array[i] % 5 == 0)
+		if (array[i] > a && array[i] % 5 == 0)
 		{
 			num++;
 		}
