@@ -5,47 +5,46 @@
 
 using namespace std;
 
+/**
+*\brief С„СѓРЅРєС†РёСЏ СЂР°СЃС‡С‘С‚Р° СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёСЏ
+*\param r1 РїР°СЂР°РјРµС‚СЂ РїРµСЂРІРѕРіРѕ СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёСЏ
+*\param r2 РїР°СЂР°РјРµС‚СЂ РІС‚РѕСЂРѕРіРѕ СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёСЏ
+*\param r3 РїР°СЂР°РјРµС‚СЂ С‚СЂРµС‚СЊРµРіРѕ СЃРѕРїСЂРѕС‚РёРІР»РµРЅРёСЏ
+*\return РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРѕР»СЊ,РµСЃР»Рё СѓСЃРїРµС€РЅРѕ
+*/
 double GetResistance(const double r1, const double r2, const double r3);
 
 
 /**
-*\brief вход в программу
-*\return возвращает ноль,если успешно
+*\brief РІС…РѕРґ РІ РїСЂРѕРіСЂР°РјРјСѓ
+*\return РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРѕР»СЊ,РµСЃР»Рё СѓСЃРїРµС€РЅРѕ
 */
 
 int main()
 {
 
 /**
-*\brief функция ввода
-*\return возвращает ноль,если успешно
+*\brief С„СѓРЅРєС†РёСЏ РІРІРѕРґР°
+*\return РІРѕР·РІСЂР°С‰Р°РµС‚ РЅРѕР»СЊ,РµСЃР»Рё СѓСЃРїРµС€РЅРѕ
 */
 
 double r1;
-cout « "Input the first resistance = ";
-cin » r1;
+cout В« "Input the first resistance = ";
+cin В» r1;
 
 double r2;
-cout « "Input the second resistance = ";
-cin » r2;
+cout В« "Input the second resistance = ";
+cin В» r2;
 
 double r3;
-cout « "Input the third resistance = ";
-cin » r3;
+cout В« "Input the third resistance = ";
+cin В» r3;
 
-cout « "\nResistance = " « GetResistance(r1,r2,r3);
+cout В« "\nResistance = " В« GetResistance(r1,r2,r3);
 
 return 0;
 
 }
-
-/**
-*\brief функциярасчёта сопротивления
-*\param r1 параметр первого сопротивления
-*\param r2 параметр второго сопротивления
-*\param r3 параметр третьего сопротивления
-*\return возвращает ноль,если успешно
-*/
 
 double GetResistance(const double r1, const double r2, const double r3)
 {
